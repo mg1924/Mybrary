@@ -1,0 +1,71 @@
+SETUP
+--------------------
+Change user:
+git config --global user.name NAME_HERE
+git config --global user.email EMAIL_HERE
+--------------------
+
+
+
+PASSWORD BYPASS
+--------------------
+Set up password bypass:
+ls ~/.ssh (if error or no file ending in .pub, setup required)
+
+Generate SSH key (if needed from above):
+ssh-keygen -t rsa -b 4096 -C EMAIL_HERE
+
+Copy SSH key into clipboard:
+Get-Content ~/.ssh/id_rsa.pub | Set-Clipboard (if no error above, use existing .pub file)
+
+IMPORTANT: Make sure to add this key into github by doing the following:
+    log into github
+    select settings in top right
+    select option with SSH in name
+    click 'New SSH key'
+    fill out form and paste key into appropriate field
+
+Check authentication:
+ssh -T git@github.com
+--------------------
+
+
+
+BASIC COMMANDS
+--------------------
+Create git repository in existing project:
+git init
+
+Clone a repository (requires the ssh version of the link if using password bypass)
+git clone LINK
+
+Stage changes (add them to a list that isn't yet committed):
+git add FILES
+git add . (adds all files)
+
+Commit a new version of the code (equivalent to saving the changes):
+git commit
+
+Push version to the remote repository (github):
+git push LINK
+
+Pull from remote repository to your device:
+git pull
+--------------------
+
+
+
+BRANCHES
+--------------------
+Create a new branch:
+git branch BRANCH_NAME
+
+Choose branch to use:
+git checkout BRANCH_NAME
+
+Create new branch and choose it:
+git checkout -b BRANCH_NAME
+
+Merge back into main branch:
+git merge BRANCH_NAME
+--------------------
